@@ -1,0 +1,111 @@
+
+white_background="\033[47m"
+red_background="\033[41m"
+green_background="\033[42m"
+blue_background="\033[44m"
+purple_background="\033[45m"
+black_background="\033[40m"
+
+white_text="\033[37m"
+red_text="\033[31m"
+green_text="\033[32m"
+blue_text="\033[34m"
+purple_text="\033[35m"
+black_text="\033[30m"
+
+column1_background_default=6;
+column1_font_color_default=1;
+column2_background_default=2;
+column2_font_color_default=4;
+
+function set_color {
+
+mem_color[0]="default";
+mem_color[1]=$column1_background;
+mem_color[2]=$column1_font_color;
+mem_color[3]=$column2_background;
+mem_color[4]=$column2_font_color;
+
+if [[ $column1_background == "" ]]; then
+    column1_background=$column1_background_default;
+fi
+if [[ $column1_font_color == "" ]]; then
+    column1_font_color=$column1_font_color_default
+fi
+if [[ $column2_background == "" ]]; then
+    column2_background=$column2_background_default
+fi
+if [[ $column2_font_color == "" ]]; then
+    column2_font_color=$column2_font_color_default
+fi
+
+color[0]="\033[m";
+color[1]=$column1_background;
+color[2]=$column1_font_color;
+color[3]=$column2_background;
+color[4]=$column2_font_color;
+}
+function get_color_co {
+
+for i in 1 3
+do
+    if [[ ${color[$i]} == 1 ]]; then
+            color[$i]=$white_background
+            view_color[$i]="(white)"
+        elif [[ ${color[$i]} == 2 ]]; then
+            color[$i]=$red_background
+            view_color[$i]="(red)"
+        elif [[ ${color[$i]} == 3 ]]; then
+            color[$i]=$green_background
+            view_color[$i]="(green)"
+        elif [[ ${color[$i]} == 4 ]]; then
+            color[$i]=$blue_background
+            view_color[$i]="(blue)"
+        elif [[ ${color[$i]} == 5 ]]; then
+            color[$i]=$purple_background
+            view_color[$i]="(purple)"
+        elif [[ ${color[$i]} == 6 ]]; then
+            color[$i]=$black_background
+            view_color[$i]="(black)"
+        fi
+done
+for i in 2 4
+do
+    if [[ ${color[$i]} == 1 ]]; then
+            color[$i]=$white_text
+            view_color[$i]="(white)"
+        elif [[ ${color[$i]} == 2 ]]; then
+            color[$i]=$red_text
+            view_color[$i]="(red)"
+        elif [[ ${color[$i]} == 3 ]]; then
+            color[$i]=$green_text
+            view_color[$i]="(green)"
+        elif [[ ${color[$i]} == 4 ]]; then
+            color[$i]=$blue_text
+            view_color[$i]="(blue)"
+        elif [[ ${color[$i]} == 5 ]]; then
+            color[$i]=$purple_text
+            view_color[$i]="(purple)"
+        elif [[ ${color[$i]} == 6 ]]; then
+            color[$i]=$black_text
+            view_color[$i]="(black)"
+        fi
+done
+}
+
+function print_colors {
+    message[0]="default";
+    message[1]="Column 1 background";
+    message[2]="Column 1 font color";
+    message[3]="Column 2 background";
+    message[4]="Column 2 font color";
+
+for k in 1 2 3 4
+do
+if [[ ${mem_color[$k]} = "" ]]; then
+    echo "${message[$k]} = ${message[0]} ${view_color[$k]}"
+    else
+    echo "${message[$k]} = ${mem_color[$k]} ${view_color[$k]}"
+fi
+done
+}

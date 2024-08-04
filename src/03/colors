@@ -1,0 +1,57 @@
+
+function get_color {
+
+color[0]="\033[m"
+color[1]=$1;
+color[2]=$2;
+color[3]=$3;
+color[4]=$4;
+
+white_background="\033[47m"
+red_background="\033[41m"
+green_background="\033[42m"
+blue_background="\033[44m"
+purple_background="\033[45m"
+black_background="\033[40m"
+
+white_text="\033[37m"
+red_text="\033[31m"
+green_text="\033[32m"
+blue_text="\033[34m"
+purple_text="\033[35m"
+black_text="\033[30m"
+
+for i in 1 3
+do
+    if [[ ${color[$i]} == 1 ]]; then
+            color[$i]=$white_background
+        elif [[ ${color[$i]} == 2 ]]; then
+            color[$i]=$red_background
+        elif (( ${color[$i]} == 3 )); then
+            color[$i]=$green_background
+        elif [[ ${color[$i]} == 4 ]]; then
+            color[$i]=$blue_background
+        elif [[ ${color[$i]} == 5 ]]; then
+            color[$i]=$purple_background
+        elif [[ ${color[$i]} == 6 ]]; then
+            color[$i]=$black_background
+        fi
+done
+for i in 2 4
+do
+    if [[ ${color[$i]} == 1 ]]; then
+            color[$i]=$white_text
+        elif [[ ${color[$i]} == 2 ]]; then
+            color[$i]=$red_text
+        elif (( ${color[$i]} == 3 )); then
+            color[$i]=$green_text
+        elif [[ ${color[$i]} == 4 ]]; then
+            color[$i]=$blue_text
+        elif [[ ${color[$i]} == 5 ]]; then
+            color[$i]=$purple_text
+        elif [[ ${color[$i]} == 6 ]]; then
+            color[$i]=$black_text
+        fi
+done
+
+}

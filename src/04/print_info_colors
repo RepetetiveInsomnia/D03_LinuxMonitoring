@@ -1,0 +1,18 @@
+function print_info_colors {
+    echo -e "${color[1]}${color[2]}HOSTNAME${color[0]} = ${color[3]}${color[4]}$HOSTNAME${color[0]}"
+    echo -e "${color[1]}${color[2]}TIMEZONE${color[0]} = ${color[3]}${color[4]}$TIMEZONE${color[0]}"
+    echo -e "${color[1]}${color[2]}USER${color[0]} = ${color[3]}${color[4]}$USER${color[0]}"
+    echo -e "${color[1]}${color[2]}OS${color[0]} = ${color[3]}${color[4]}$OS${color[0]}"
+    echo -e "${color[1]}${color[2]}DATE${color[0]} = ${color[3]}${color[4]}$DATE${color[0]}"
+    echo -e "${color[1]}${color[2]}UPTIME${color[0]} = ${color[3]}${color[4]}$UPTIME${color[0]}"
+    echo -e "${color[1]}${color[2]}UPTIME_SEC${color[0]} = ${color[3]}${color[4]}$UPTIME_SEC${color[0]}"
+    echo -e "${color[1]}${color[2]}IP${color[0]} = ${color[3]}${color[4]}$IP${color[0]}"
+    echo -e "${color[1]}${color[2]}MASK${color[0]} = ${color[3]}${color[4]}$MASK${color[0]}"
+    echo -e "${color[1]}${color[2]}GATEWAY${color[0]} = ${color[3]}${color[4]}$GATEWAY${color[0]}"
+    echo -e "${color[1]}${color[2]}RAM_TOTAL${color[0]} = ${color[3]}${color[4]}$RAM_TOTAL${color[0]}"
+    echo -e "${color[1]}${color[2]}RAM_USED${color[0]} = ${color[3]}${color[4]}$RAM_USED${color[0]}"
+    echo -e "${color[1]}${color[2]}RAM_FREE${color[0]} = ${color[3]}${color[4]}$RAM_FREE${color[0]}"
+    echo -e "${color[1]}${color[2]}SPACE_ROOT${color[0]} = ${color[3]}${color[4]}$SPACE_ROOT${color[0]}"
+    echo -e "${color[1]}${color[2]}SPACE_ROOT_USED${color[0]} = ${color[3]}${color[4]}$SPACE_ROOT_USED${color[0]}"
+    echo -e "${color[1]}${color[2]}SPACE_ROOT_FREE${color[0]} = ${color[3]}${color[4]}$SPACE_ROOT_FREE${color[0]}"
+}

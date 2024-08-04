@@ -1,0 +1,18 @@
+function get_info {
+    HOSTNAME=`hostname`
+    TIMEZONE="`cat /etc/timezone` `date "+%Z %:::z"`"
+    USER=`whoami`
+    OS=`lsb_release -ds`
+    DATE=`date "+%d %B %Y %T"`
+    UPTIME=`uptime -p`
+    UPTIME_SEC=`awk '{print $1}' /proc/uptime`
+    IP=`ifconfig | grep inet | head -1 | awk {'print $2'}`
+    MASK=`ifconfig | grep inet | head -1 | awk {'print $4'}`
+    GATEWAY=`ip r | grep default | awk {'print $3'}`
+    RAM_TOTAL=`free -m | grep Mem | awk {'printf "%.3f GB\n", $2/1024'}`
+    RAM_USED=`free -m | grep Mem | awk {'printf "%.3f GB\n", $3/1024'}`
+    RAM_FREE=`free -m | grep Mem | awk {'printf "%.3f GB\n", $4/1024'}`
+    SPACE_ROOT=`df / | grep /dev/ | awk {'printf "%.2f MB", $2/1024'}`
+    SPACE_ROOT_USED=`df / | grep /dev/ | awk {'printf "%.2f MB", $3/1024'}`
+    SPACE_ROOT_FREE=`df / | grep /dev/ | awk {'printf "%.2f MB", $4/1024'}`
+}
